@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+echo "USE portfi; DROP table relationship_up; DROP table relationship_pa; DROP table relationship_etf; DROP table assets; DROP table portfolio; DROP table users;" | sudo mysql

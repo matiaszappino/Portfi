@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/estilos.css"/>
+	<!-- <script type="text/javascript" src="../static/scripts/capture_assets.js"></script> -->
+    <title>Portifi</title>
+</head>
+<body>
+	<header>
+    </header>
+	<div>
+		<h4>- INFORMACION GENERAL -</h4>
+		<div>
+			<form action="{{ url_for("dashboard_form") }}" method="post">
+			<input type="text" id="firstname" name="ticker" placeholder="Ticker" required>
+			<input type="number" id="lastname" name="weight" placeholder="Weight" min="0.0" max="1.0" step="0.01">
+			<input type="date" id="start" name="start" required>
+			<input type="date" id="end" name="end" required>
+			<button type="submit">Submit</button>
+		</div>
+		<p>Nombre: {{ portfolio.name }}</p>
+		<p>Riesgo: {{ portfolio.risk }}</p>
+		<p>Valor: {{ portfolio.total_avaiable }} USD</p>
+		<p>Lista de Assets: {{ portfolio.assets }}</p>
+		<p>Available: {{ portfolio.performance['available'] }}
+		<p>Benchmark: {{ bechmarck.assets }}</p>
+		<p>Start: {{ portfolio.performance['start'] }}</p>
+		<p>End: {{ portfolio.performance['end'] }}</p>
+
+	</div>
+	<div>
+		<h4>- ESTADISTICAS -</h4>
+		<p>Volatility: {{ portfolio.performance['volatility'] }}</p>
+		<p>Returns: {{ portfolio.performance['returns'] }}</p>
+		<p>Drawdown: {{ portfolio.performance['drawdown'] }}</p>
+		<p>Downside Risk: {{ portfolio.performance['downside_risk']}}</p>
+		<p>Sharpe: {{ portfolio.performance['sharpe'] }}</p>
+	</div>
+<footer>
+		<p>Final Project 2021 - Holberton School</p>
+	</footer>
+</body>
+
+</html>
